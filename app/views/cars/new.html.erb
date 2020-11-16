@@ -1,0 +1,12 @@
+<%= simple_form_for(@car) do |f| %>
+  <%= f.error_notification %>
+  <%= f.label :brand %>
+  <%= f.text_field :brand %>
+  <%= f.label :model %>
+  <%= f.text_field :model %>
+  <%= f.label :year %>
+  <%= f.number_field :year %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.submit %>
+<% end %>
