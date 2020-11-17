@@ -1,5 +1,20 @@
-<h2><%= @car.brand %></h2>
-<p><%= @car.model %></p>
-<p><%= @car.year %></p>
+<div class="container">
+  <div class="card-trip">
+    <%= cl_image_tag @car.photos[0].key, class: "card-trip" %>
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @car.brand %> <%= @car.model %> <%= @car.year %></h2>
+        <p><%= @car.description %></p>
+      </div>
+      <h2 class="card-trip-pricing">£<%= @car.price.round %></h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    </div>
 
-<%= link_to "Delete car", car_path(@car), class: 'btn btn-primary', method: :delete, data: { confirm: "Are you sure you want to delete #{@car.model}?" } %>
+<%= link_to "Edit car", edit_car_path(@car), class: 'btn btn-warning' %>
+
+<%= link_to "Delete car", car_path(@car), class: 'btn btn-warning', method: :delete, data: { confirm: "Are you sure you want to delete #{@car.model}?" } %>
+
+<%= link_to "Book this car", new_car_booking_path(@car), class: 'btn btn-warning' %>
+
+ </div>
+</div>
