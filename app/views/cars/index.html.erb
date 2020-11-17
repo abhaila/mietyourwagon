@@ -1,5 +1,10 @@
-<ul>
-  <% @cars.each do |car| %>
-    <li><%= car.brand %> - <%= car.model %>. Year: <%= car.year %></li>
-  <% end %>
-</ul>
+
+<div class="container">
+  <h1>All Cars</h1>
+  <div class="cards">
+    <% @cars.each do |car| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80)"><%= car.brand %> <%= car.model %>
+      </div>
+
+    <% end %>
+</div>
