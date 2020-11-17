@@ -8,4 +8,5 @@ class Car < ApplicationRecord
   validates :model, presence: true
   validates :brand, presence: true
   validates :description, presence: true
+  has_many_attached :photos
 end
