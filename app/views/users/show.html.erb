@@ -1,5 +1,17 @@
+
+<h3 class="user-name" style="padding-top: 40px;">Hi <%= current_user.first_name.capitalize %>! </h3>
+<p class="user-info">These are your Cars:</p>
+
+
 <% @cars.each do |car| %>
-  <p><%= car.brand %></p>
-  <p><%= car.model %></p>
-  <p><%= car.description %></p>
+  <div class="card-product">
+    <img src="" />
+    <div class="card-product-infos">
+      <h2><%= car.brand %> - <%= car.model %></h2>
+      <p><%= car.description %></p>
+      <%= link_to "Edit", edit_car_path(car) %>
+      -
+      <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
 <% end %>
