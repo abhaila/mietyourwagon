@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :cars do
-    resources :bookings
+    resources :bookings, only: [:new, :create]
+    # changed it from universal resources to only new and create as needed
   end
-  resources :bookings, only: [:destroy]
+  resources :bookings, except: [:new, :create]
 end
