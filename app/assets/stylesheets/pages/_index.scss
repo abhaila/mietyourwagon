@@ -1,3 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "form-inputs";
+
+h1 {
+  text-align: center;
+  padding: 16px;
+}
