@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="small-container">
+<h1>Add a booking for <%= @car.brand %> <%= @car.model %></h1>
+<p><%= @car.description %></p>
+<%= simple_form_for [@car, @booking] do |f| %>
+  <%= f.input :start_date, html5: true  %>
+  <%= f.input :end_date, html5: true  %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+</div>
+</div>

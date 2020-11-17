@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: :show
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :cars do
-    resources :bookings, except: [:destroy]
+    resources :bookings, only: [:new, :create]
+    # changed it from universal resources to only new and create as needed
   end
-  resources :bookings, only: [:destroy]
+  resources :bookings, except: [:new, :create]
 end
