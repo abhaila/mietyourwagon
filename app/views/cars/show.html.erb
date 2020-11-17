@@ -1,3 +1,5 @@
 <h2><%= @car.brand %></h2>
 <p><%= @car.model %></p>
 <p><%= @car.year %></p>
+
+<%= link_to "Delete car", car_path(@car), class: 'btn btn-primary', method: :delete, data: { confirm: "Are you sure you want to delete #{@car.model}?" } %>
