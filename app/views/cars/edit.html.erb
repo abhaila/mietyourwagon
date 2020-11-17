@@ -1,14 +1,19 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
 <h1>Edit your car</h1>
 
 <%= simple_form_for(@car) do |f| %>
   <%= f.error_notification %>
-  <%= f.label :brand %>
-  <%= f.text_field :brand %>
-  <%= f.label :model %>
-  <%= f.text_field :model %>
-  <%= f.label :year %>
-  <%= f.number_field :year %>
+  <%= f.input :brand %>
+  <%= f.input :model %>
+  <%= f.input :year %>
   <%= f.input :price %>
   <%= f.input :description %>
   <%= f.submit %>
 <% end %>
+
+</div>
+</div>
+</div>
+
