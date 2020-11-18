@@ -10,5 +10,5 @@ class Car < ApplicationRecord
   validates :description, presence: true
   has_many_attached :photos
 
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 end
