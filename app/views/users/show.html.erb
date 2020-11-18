@@ -5,7 +5,7 @@
 
 <% @cars.each do |car| %>
   <div class="card-product">
-    <img src="" />
+    <%= cl_image_tag car.photos[0].key %>
     <div class="card-product-infos">
       <h2><%= car.brand %> - <%= car.model %></h2>
       <p><%= car.description %></p>
@@ -20,7 +20,7 @@
 
 <% @your_bookings.each do |your_booking| %>
   <div class="card-product">
-    <img src="" />
+    <%= cl_image_tag your_booking.car.photos[0].key %>
     <div class="card-product-infos">
       <h2><%= your_booking.car.brand %> - <%= your_booking.car.model %></h2>
       <p><%= your_booking.car.description %></p>
@@ -35,7 +35,7 @@
 
 <% @incoming_bookings.each do |booking| %>
   <div class="card-product">
-    <img src="" />
+    <%= cl_image_tag booking.car.photos[0].key %>
     <div class="card-product-infos">
       <h2><%= booking.user_id %></h2>
       <h2><%= booking.car_id %></h2>
