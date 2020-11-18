@@ -1,0 +1,41 @@
+.banner {
+  background-size: cover;
+  background-position: bottom;
+  padding: 56px 0;
+  height: 400px;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 40px;
+  font-weight: bold;
+  padding-bottom: 16px;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner .btn-ghost {
+  color: white;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: regular;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.banner .btn-ghost:hover {
+  opacity: 1;
+  text-decoration: none;
+  background-color: rgb(248, 171, 65);
+  color: #4A4A4A;
+  border: 1px solid rgb(248, 171, 65);
+  transition: 0.5s ease;
+}
