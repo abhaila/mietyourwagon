@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+  before_action :calculate_average_stars, only: :show
 
   def index
     @cars = Car.all
@@ -18,6 +19,7 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
   end
 
   def new
@@ -55,6 +57,16 @@ class CarsController < ApplicationController
   end
 
   private
+
+  def calculate_average_stars
+    @car = Car.find(params[:id])
+    sum = 0
+    @car.reviews.each do |review|
+      sum += review.stars
+    end
+    @car.average_stars = sum / @car.reviews.count
+    @car.save
+  end
 
   def car_params
     params.require(:car).permit(:brand, :model, :year, :description, :address, :price, photos: [])

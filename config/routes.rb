@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :cars do
     resources :bookings, only: [:new, :create]
     # changed it from universal resources to only new and create as needed
+    resources :reviews, only: [ :new, :create ]
   end
   resources :bookings, except: [:new, :create]
 end
