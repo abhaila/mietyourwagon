@@ -64,7 +64,11 @@ class CarsController < ApplicationController
     @car.reviews.each do |review|
       sum += review.stars
     end
-    @car.average_stars = sum / @car.reviews.count
+    if @car.reviews.count >= 1
+      @car.average_stars = sum / @car.reviews.count
+    else
+      @car.average_stars = nil
+    end
     @car.save
   end
 
