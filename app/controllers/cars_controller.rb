@@ -4,6 +4,11 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.all
+    if params[:query].present?
+      @cars = Car.search_by_brand(params[:query])
+     else
+       @cars = Car.all
+     end
 
     # adding geocoding code below
     @markers = @cars.geocoded.map do |car|

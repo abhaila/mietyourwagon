@@ -1,7 +1,49 @@
 
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm-6 pt-8">
+      <form class="form-inline">
+      <div class="form-group mb-2">
+
+     </form> -->
+      <!-- <div id="Cars"> -->
+        <%# @cars.each do |car| %>
+          <!-- <h4><%#= car.brand  %></h4> -->
+        <%# end %>
+      <!-- </div> -->
+      <!-- </div> -->
+   <!--  </div>
+  </div>
+</div>
+ -->
+
+<div class="main-container justify-content-between">
+  <div class="main-container-first">
+    <h1>All Cars</h1>
+  </div>
+  <div class="main-container-second">
+     <%= form_tag cars_path, method: :get, class: "d-flex" do  %>
+        <%= text_field_tag :query,
+           params[:query],
+           class: "form-control",
+           placeholder: "Find your Car..."%>
+           <!-- <div class="input-group-append"> -->
+            <!-- <div class="col-auto my-1"> -->
+              <!-- <div class="search-button"> -->
+        <%= submit_tag "Search", class: "btn btn-primary ml-4 search-button"  %>
+           <!-- </div> -->
+          <!--  </div>
+           </div>
+           </form>
+           </div> -->
+      <% end %>
+  </div>
+
+
+</div>
 <div class="main-container">
   <div class="cards-container">
-    <h1>All Cars</h1>
+    <!-- <h1>All Cars</h1> -->
     <div class="cards">
       <% @cars.each do |car| %>
         <%= link_to car_path(car), class: 'card-text' do  %>
@@ -11,9 +53,15 @@
       <% end %>
     </div>
      </div>
+
+
+
     <div id="map"
       style="width: 60%; height: 100vh;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 </div>
+
+
+
