@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "open-uri"
-image1 = URI.open('https://res.cloudinary.com/raeesa/image/upload/v1605705292/obpsa1j8fiagowxjeklc9p0l7uxl.jpg')
+
+image1 = URI.open('https://res.cloudinary.com/raeesa/image/upload/v1605722085/p2h6nl2u5c13kydvalti8olybk76.jpg')
 # car1.photo.attach(io: image1, filename: 'image1.jpg', content_type: 'image/jpg')
 image2 = URI.open('https://res.cloudinary.com/raeesa/image/upload/v1605699944/s8p20hsungqaa2i341dt75484btc.jpg')
 # car2.photo.attach(io: image2, filename: 'image2.jpg', content_type: 'image/jpg')
@@ -41,8 +42,16 @@ Booking.create!(user: User.all.sample, car: Car.all.sample, start_date: "2020-11
 Booking.create!(user: User.all.sample, car: Car.all.sample, start_date: "2020-11-19 12:18:00 UTC", end_date: "2020-11-25 12:18:00 UTC")
 Booking.create!(user: User.all.sample, car: Car.all.sample, start_date: "2020-11-19 12:18:00 UTC", end_date: "2020-11-25 12:18:00 UTC")
 
+puts "Creating reviews..."
+
+# create reviews
+50.times do
+  Review.create!(stars: rand(1..5), car: Car.all.sample)
+end
+
 puts "Done! #{User.count} users created."
 puts "Done! #{Car.count} cars created."
 puts "Done! #{Booking.count} bookings created."
+puts "Done! #{Review.count} reviews created."
 
 
