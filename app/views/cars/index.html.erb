@@ -26,7 +26,7 @@
         <%= text_field_tag :query,
            params[:query],
            class: "form-control",
-           placeholder: "Find your car by brand or model..."%>
+           placeholder: "Find your Car..."%>
            <!-- <div class="input-group-append"> -->
             <!-- <div class="col-auto my-1"> -->
               <!-- <div class="search-button"> -->
@@ -45,8 +45,8 @@
   <div class="cards-container">
     <!-- <h1>All Cars</h1> -->
     <div class="cards">
-      <% if @car.photos.attached? %>
-        <% @cars.each do |car| %>
+      <% @cars.each do |car| %>
+        <% if car.photos.attached? %>
           <%= link_to car_path(car), class: 'card-text' do  %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path car.photos[0].key %>')"><%= car.brand %> <%= car.model %>
             </div>
