@@ -41,8 +41,16 @@ Booking.create!(user: User.all.sample, car: Car.all.sample, start_date: "2020-11
 Booking.create!(user: User.all.sample, car: Car.all.sample, start_date: "2020-11-19 12:18:00 UTC", end_date: "2020-11-25 12:18:00 UTC")
 Booking.create!(user: User.all.sample, car: Car.all.sample, start_date: "2020-11-19 12:18:00 UTC", end_date: "2020-11-25 12:18:00 UTC")
 
+puts "Creating reviews..."
+
+# create reviews
+50.times do
+  Review.create!(stars: rand(1..5), car: Car.all.sample)
+end
+
 puts "Done! #{User.count} users created."
 puts "Done! #{Car.count} cars created."
 puts "Done! #{Booking.count} bookings created."
+puts "Done! #{Review.count} reviews created."
 
 

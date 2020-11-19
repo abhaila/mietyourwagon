@@ -28,7 +28,16 @@
             <p><%= @car.address %></p>
           </div>
           <h2 class="card-trip-pricing">£<%= @car.price.round %> per day</h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
+          <div class="card-trip-user">
+            <% if @car.average_stars != nil %>
+              <p>
+                <% @car.average_stars.times do%>
+                  ⭐️
+                <% end %>
+              </p>
+            <% end %>
+          </div>
         </div>
 
           <%= link_to "Edit car", edit_car_path(@car), class: 'btn btn-warning' %>
@@ -36,12 +45,20 @@
           <%= link_to "Delete car", car_path(@car), class: 'btn btn-warning', method: :delete, data: { confirm: "Are you sure you want to delete #{@car.model}?" } %>
       </div>
     </div>
+
     <div class="col-sm-4">
       <div class="form-container">
         <h4><strong>Add a booking for <%= @car.brand %> <%= @car.model %></strong></h4>
         <%= simple_form_for [@car, @booking] do |f| %>
           <%= f.input :start_date, html5: true  %>
           <%= f.input :end_date, html5: true  %>
+          <%= f.button :submit, class: "btn btn-warning" %>
+        <% end %>
+      </div>
+      <div class="form-container">
+        <h4><strong>Add a review for this car</strong></h4>
+        <%= simple_form_for [@car, @review] do |f| %>
+          <p>Between 1 and 5</p><%= f.input :stars  %>
           <%= f.button :submit, class: "btn btn-warning" %>
         <% end %>
       </div>

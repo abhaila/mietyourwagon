@@ -98,9 +98,13 @@
 
 .card-trip-infos .card-trip-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  right: 51px;
+  top: 20px;
+  width: 100px;
+}
+
+.card-trip-user p {
+  font-size: 12px;
 }
 
 .cards {
