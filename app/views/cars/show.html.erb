@@ -55,13 +55,16 @@
           <%= f.button :submit, class: "btn btn-warning" %>
         <% end %>
       </div>
-      <div class="form-container">
-        <h4><strong>Add a review for this car</strong></h4>
-        <%= simple_form_for [@car, @review] do |f| %>
-          <p>Between 1 and 5</p><%= f.input :stars  %>
-          <%= f.button :submit, class: "btn btn-warning" %>
-        <% end %>
-      </div>
+
+      <% if @car.user != current_user %>
+        <div class="form-container">
+          <h4><strong>Add a review for this car</strong></h4>
+          <%= simple_form_for [@car, @review] do |f| %>
+            <p>Between 1 and 5</p><%= f.input :stars  %>
+            <%= f.button :submit, class: "btn btn-warning" %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
