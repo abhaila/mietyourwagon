@@ -1,2 +1,10 @@
-<h4><%= car.brand %><%= car.model %></h4>
-<p>£<%= car.price %>per day</p>
+
+<div class="map-window">
+    <%= cl_image_tag car.photos[0].key %>
+    <div class="map-window-infos">
+      <h4><%= car.brand %> <%= car.model %></h4>
+      <p><%= car.address %></p>
+      <p>£<%= car.price.round %> per day</p>
+      <%= link_to "More info", car_path(car), class: 'popup-button' %>
+    </div>
+  </div>
