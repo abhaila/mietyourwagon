@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require "open-uri"
+
 image1 = URI.open('https://res.cloudinary.com/raeesa/image/upload/v1605722085/p2h6nl2u5c13kydvalti8olybk76.jpg')
 # car1.photo.attach(io: image1, filename: 'image1.jpg', content_type: 'image/jpg')
 image2 = URI.open('https://res.cloudinary.com/raeesa/image/upload/v1605699944/s8p20hsungqaa2i341dt75484btc.jpg')

@@ -1,52 +1,29 @@
-
-<h3 class="user-name" style="padding-top: 40px;">Hi <%= current_user.first_name.capitalize %>! </h3>
-<p class="user-info">These are your Cars:</p>
-
-
-<% @cars.each do |car| %>
-  <div class="card-product">
-    <%= cl_image_tag car.photos[0].key %>
-    <div class="card-product-infos">
-      <h2><%= car.brand %> - <%= car.model %></h2>
-      <p><%= car.description %></p>
-      <%= link_to "Edit", edit_car_path(car) %>
-      -
-      <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "Are you sure?" } %>
-    </div>
-  </div>
-<% end %>
-
-<h3 class="user-name" style="padding-top: 40px;">Your Bookings:</h3>
-
-<% @your_bookings.each do |your_booking| %>
-  <div class="card-product">
-    <%= cl_image_tag your_booking.car.photos[0].key %>
-    <div class="card-product-infos">
-      <h2><%= your_booking.car.brand %> - <%= your_booking.car.model %></h2>
-      <p>Start date: <%= your_booking.start_date %></p>
-      <p>End date: <%= your_booking.end_date %></p>
-      <p><%= your_booking.car.description %></p>
-      <%= link_to "Edit Booking", edit_booking_path(your_booking) %>
-      -
-      <%= link_to "Delete Booking", booking_path(your_booking), method: :delete, data: { confirm: "Are you sure?" } %>
-    </div>
-  </div>
-<% end %>
-
-<h3 class="user-name" style="padding-top: 40px;">Incoming bookings on your cars:</h3>
-
-<% @incoming_bookings.each do |booking| %>
-  <div class="card-product">
-    <%= cl_image_tag booking.car.photos[0].key %>
-    <div class="card-product-infos">
-      <h2>Booked by: <%= booking.user.first_name.capitalize %> <%= booking.user.last_name.capitalize %></h2>
-      <h2><%= booking.car.brand %> - <%= booking.car.model %></h2>
-      <h2> <%= booking.total_price %> </h2>
-      <p>Start date: <%= booking.start_date %></p>
-      <p>End date: <%= booking.end_date %></p>
-      <%= link_to "Edit", edit_booking_path(booking) %>
-      -
-      <%= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } %>
-    </div>
-  </div>
-<% end %>
+<div class="container mt-5">
+  <h1 class="headers">Trips</h1>
+</div>
+<div class="container mt-4 border-bottom border-warning border-10">
+  <button class="btn">Upcoming</button>
+</div>
+<div class="container" style="margin-top: 24px;">
+  <ul class="_f68cfc">
+    <% @your_bookings.each do |your_booking| %>
+      <li class="_gcfn5x">
+        <div class="_1ch9oqq">
+          <div class="_znbf64">
+            <div class="_1uwpj50">
+              <%= cl_image_tag your_booking.car.photos[0].key, class:"_z75ovys" %>
+            </div>
+            <div>
+              <div class="_7dvuub">
+              <div><%= your_booking.start_date.strftime("%b %d, %Y") %> - <%= your_booking.end_date.strftime("%b %d, %Y") %></div>
+              </div>
+              <div class="_h15bjcm">
+                <h4><%= your_booking.car.brand %> - <%= your_booking.car.model %></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
