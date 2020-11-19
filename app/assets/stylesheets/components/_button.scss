@@ -49,3 +49,19 @@
   background: rgb(249, 171, 64);
   border: none;
 }
+
+.popup-button {
+  background: rgb(249, 171, 64);
+  padding: 4px;
+  margin-top: 8px;
+  border-radius: 2px;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  width: 100%;
+}
+
+.popup-button:hover {
+  background: #E67E22;
+  color: white;
+}
