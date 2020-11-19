@@ -2,28 +2,54 @@
   <h1 class="headers">Trips</h1>
 </div>
 <div class="container mt-4 border-bottom border-warning border-10">
-  <button class="btn btn-bookings">Upcoming</button>
+  <button class="btn btn-bookings booking-tab" data-target="upcoming-bookings">Upcoming</button>
+  <button class="btn btn-bookings booking-tab" data-target="past-bookings">Past</button>
 </div>
 <div class="container" style="margin-top: 24px;">
-  <ul class="_f68cfc">
-    <% @your_bookings.each do |your_booking| %>
-      <li class="_gcfn5x">
-        <div class="_1ch9oqq">
-          <div class="_znbf64">
-            <div class="_1uwpj50">
-              <%= cl_image_tag your_booking.car.photos[0].key, class:"_z75ovys" %>
-            </div>
-            <div>
-              <div class="_7dvuub">
-              <div><%= your_booking.start_date.strftime("%b %d, %Y") %> - <%= your_booking.end_date.strftime("%b %d, %Y") %></div>
+  <div class="bookings-ul active" id="upcoming-bookings">
+    <ul class="_f68cfc">
+      <% @upcoming_bookings.each do |your_booking| %>
+        <li class="_gcfn5x">
+          <div class="_1ch9oqq">
+            <div class="_znbf64">
+              <div class="_1uwpj50">
+                <%= cl_image_tag your_booking.car.photos[0].key, class:"_z75ovys" %>
               </div>
-              <div class="_h15bjcm">
-                <h4><%= your_booking.car.brand %> - <%= your_booking.car.model %></h4>
+              <div>
+                <div class="_7dvuub">
+                <div><%= your_booking.start_date.strftime("%b %d, %Y") %> - <%= your_booking.end_date.strftime("%b %d, %Y") %></div>
+                </div>
+                <div class="_h15bjcm">
+                  <h4><%= your_booking.car.brand %> - <%= your_booking.car.model %></h4>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="bookings-ul" id="past-bookings">
+    <ul class="_f68cfc">
+      <% @past_bookings.each do |your_booking| %>
+        <li class="_gcfn5x">
+          <div class="_1ch9oqq">
+            <div class="_znbf64">
+              <div class="_1uwpj50">
+                <%= cl_image_tag your_booking.car.photos[0].key, class:"_z75ovys" %>
+              </div>
+              <div>
+                <div class="_7dvuub">
+                <div><%= your_booking.start_date.strftime("%b %d, %Y") %> - <%= your_booking.end_date.strftime("%b %d, %Y") %></div>
+                </div>
+                <div class="_h15bjcm">
+                  <h4><%= your_booking.car.brand %> - <%= your_booking.car.model %></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

@@ -128,3 +128,11 @@ button {
   text-align: left !important;
   margin-top: auto !important;
 }
+
+.bookings-ul.active {
+  display: block;
+}
+
+.bookings-ul {
+  display: none;
+}
