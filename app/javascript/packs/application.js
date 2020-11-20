@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initBookingsTabs } from '../pages/bookings/init_bookings_tabs';
+import { initCarsTabs } from '../pages/cars/init_cars_tabs';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -35,4 +36,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   initBookingsTabs();
+  initCarsTabs();
 });

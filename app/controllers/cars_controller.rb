@@ -6,11 +6,11 @@ class CarsController < ApplicationController
     @cars = Car.all
     if params[:query].present?
       @cars = Car.search_by_brand(params[:query])
-     else
-       @cars = Car.all
-     end
+    else
+      @cars = Car.all
+    end
 
-    # adding geocoding code below
+      # adding geocoding code below
     @markers = @cars.geocoded.map do |car|
       {
         lat: car.latitude,
