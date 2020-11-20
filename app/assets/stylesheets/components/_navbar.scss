@@ -1,5 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
+  background: rgb(255, 255, 255);
   height: 56px;
   padding: 0px 16px;
 }
@@ -21,4 +22,17 @@
 
 #title {
   font-size: 18px;
+}
+
+.hire {
+  border-radius: 16px;
+  border: 2px solid rgba(249, 171, 64, 0.2);
+  background-color: rgba(249, 171, 64, 0.5);
+  margin: 0px 8px;
+  font-weight: bold;
+}
+
+.hire:hover {
+  background-color: rgb(249, 171, 64);
+  transition: 0.5s ease;
 }
