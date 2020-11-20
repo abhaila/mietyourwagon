@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-
       <div class="card-trip">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -11,65 +10,68 @@
               </div>
             <% end %>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
         </div>
-
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= @car.brand %> <%= @car.model %> <%= @car.year %></h2>
-            <p><%= @car.description %></p>
-            <p><%= @car.address %></p>
-          </div>
-          <h2 class="card-trip-pricing">£<%= @car.price.round %> per day</h2>
-          <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
-          <div class="card-trip-user">
-            <% if @car.average_stars != nil %>
-              <p>
-                <% @car.average_stars.times do%>
-                  ⭐️
-                <% end %>
-              </p>
-            <% end %>
-          </div>
-          </div>
-           <% if @car.user == current_user %>
-          <%= link_to "Edit car", edit_car_path(@car), class: 'btn btn-warning edit-link' %>
-
-          <%= link_to "Delete car", car_path(@car), class: 'btn btn-warning delete-link', method: :delete, data: { confirm: "Are you sure you want to delete #{@car.model}?" } %>
-        <% end %>
-        </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="form-container" data-controller="price">
-        <h4><strong>Add a booking for <%= @car.brand %> <%= @car.model %></strong></h4>
-        <p>£<%= @car.price.round %> per day</p>
-        <%= simple_form_for [@car, @booking] do |f| %>
-          <%= f.input :start_date, html5: true, input_html: { data: {action: "change->price#calculate", target: "price.startDate", id: @car.id} }  %>
-          <%= f.input :end_date, html5: true, input_html: { data: {action: "change->price#calculate", target: "price.endDate", id: @car.id} }  %>
-          <p>Estimated price:</p>
-          <p>£<nobr data-target="price.datapoint">0</nobr></p>
-          <%= f.button :submit, class: "btn btn-warning" %>
-        <% end %>
       </div>
 
-      <% if @car.user != current_user %>
-        <div class="form-container">
-          <h4><strong>Add a review for this car</strong></h4>
-          <%= simple_form_for [@car, @review] do |f| %>
-            <p>Between 1 and 5</p><%= f.input :stars  %>
-            <%= f.button :submit, class: "btn btn-warning" %>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= @car.brand %> <%= @car.model %> <%= @car.year %></h2>
+          <p><%= @car.description %></p>
+          <p><%= @car.address %></p>
+        </div>
+        <h2 class="card-trip-pricing">£<%= @car.price.round %> per day</h2>
+        <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> -->
+        <div class="card-trip-user">
+          <% if @car.average_stars != nil %>
+            <p>
+              <% @car.average_stars.times do%>
+                ⭐️
+              <% end %>
+            </p>
           <% end %>
         </div>
+      </div>
+
+      <% if @car.user == current_user %>
+        <%= link_to "Edit car", edit_car_path(@car), class: 'btn btn-warning edit-link' %>
+        <%= link_to "Delete car", car_path(@car), class: 'btn btn-warning delete-link', method: :delete, data: { confirm: "Are you sure you want to delete #{@car.model}?" } %>
       <% end %>
     </div>
+
+    <% if @car.user != current_user %>
+      <div class="col-sm-4">
+
+          <div class="form-container" data-controller="price">
+            <h4><strong>Add a booking for <%= @car.brand %> <%= @car.model %></strong></h4>
+            <p>£<%= @car.price.round %> per day</p>
+            <%= simple_form_for [@car, @booking] do |f| %>
+              <%= f.input :start_date, html5: true, input_html: { data: {action: "change->price#calculate", target: "price.startDate", id: @car.id} }  %>
+              <%= f.input :end_date, html5: true, input_html: { data: {action: "change->price#calculate", target: "price.endDate", id: @car.id} }  %>
+              <p>Estimated price:</p>
+              <p>£<nobr data-target="price.datapoint">0</nobr></p>
+              <%= f.button :submit, class: "btn btn-warning" %>
+            <% end %>
+          </div>
+
+          <div class="form-container">
+            <h4><strong>Add a review for this car</strong></h4>
+            <%= simple_form_for [@car, @review] do |f| %>
+              <p>Between 1 and 5</p><%= f.input :stars  %>
+              <%= f.button :submit, class: "btn btn-warning" %>
+            <% end %>
+          </div>
+
+      </div>
+    <% end %>
   </div>
 </div>
 
