@@ -15,7 +15,7 @@ export default class extends Controller {
         .then(response => response.json())
         .then((data) => {
           let price = data.car.price
-          let estimated = (Math.round(totalTime/60000000)) * price
+          let estimated = (Math.round(total/60000000)) * price
           this.datapointTarget.innerText = estimated;
         });
     };

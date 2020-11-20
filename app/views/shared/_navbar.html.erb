@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-bottom">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/abhaila/mietyourwagon/master/app/assets/images/miet_logo.png" %>
         <span id="title">MIET YOUR WAGON</span>
@@ -11,11 +11,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "View all cars", cars_path, class: "nav-link" %>
-        </li>
+        <% unless params[:controller] == "pages" && params[:action] == "home"  %>
+          <li class="nav-item">
+            <%= link_to "View all cars", cars_path, class: "nav-link" %>
+          </li>
+        <% end %>
         <li class="nav-item active">
-          <%= link_to "Hire out your car", new_car_path, class: "nav-link" %>
+          <%= link_to "Hire out your car", new_car_path, class: "nav-link hire" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://avatars2.githubusercontent.com/u/68373422?s=400&u=c0305c43aae7809c60f21317727ed80471260fe0&v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
