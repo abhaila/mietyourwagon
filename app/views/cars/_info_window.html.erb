@@ -1,5 +1,5 @@
-
 <div class="map-window">
+  <% if car.photos.attached? %>
     <%= cl_image_tag car.photos[0].key %>
     <div class="map-window-infos">
       <h4><%= car.brand %> <%= car.model %></h4>
@@ -7,4 +7,5 @@
       <p>£<%= car.price.round %> per day</p>
       <%= link_to "More info", car_path(car), class: 'popup-button' %>
     </div>
-  </div>
+  <% end %>
+</div>
