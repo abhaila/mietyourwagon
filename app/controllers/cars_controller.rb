@@ -25,6 +25,11 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @booking = Booking.new
     @review = Review.new
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { car: @car } }
+    end
   end
 
   def new
