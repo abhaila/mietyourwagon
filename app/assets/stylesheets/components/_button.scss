@@ -21,6 +21,7 @@
   padding: 8px 24px;
   border-radius: 4px;
   background: rgb(249, 171, 64);
+
   // transition: background 0.3s ease;
   width: 100%;
 }
@@ -50,13 +51,31 @@
   border-radius: 4px;
   max-width: 100%;
   display: inline-block;
-
-
 }
+
+.delete-link {
+  background-color: rgb(232, 52, 37);
+  &:hover {
+    background-color: rgb(232, 52, 37) !important;
+  }
+}
+
+.edit-link {
+  background-color: rgb(131, 227, 83);
+  &:hover {
+    background-color: rgb(131, 227, 83) !important;
+  }
+}
+
+.creat-booking {
+  background: rgb(249, 171, 64);
+}
+
 
 .btn-warning:hover {
   background: rgb(249, 171, 64);
 }
+
 
 .btn:hover {
   font-weight: bold;
