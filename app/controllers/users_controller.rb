@@ -12,4 +12,12 @@ class UsersController < ApplicationController
     @incoming_bookings = @user.incoming_bookings
     # @your_cars_bookings = Booking.where(cars: @cars)
   end
+
+  def cars
+    @user = current_user
+    @cars = @user.cars
+
+    @incoming_bookings = @user.incoming_bookings
+    # @your_cars_bookings = Booking.where(cars: @cars)
+  end
 end
