@@ -48,6 +48,13 @@
 .btn-warning {
   background: rgb(249, 171, 64);
   border: none;
+  max-width: 127px;
+  display: inline-block;
+
+}
+
+.btn-warning:hover {
+  background: rgb(249, 171, 64);
 }
 
 .btn:hover {

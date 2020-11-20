@@ -43,7 +43,8 @@
                 <div><%= your_booking.start_date.strftime("%b %d, %Y") %> - <%= your_booking.end_date.strftime("%b %d, %Y") %></div>
                 </div>
                 <div class="user-bookings-carname-box">
-                  <h4><%= your_booking.car.brand %> - <%= your_booking.car.model %></h4>
+                  <h5><%= your_booking.car.brand %> - <%= your_booking.car.model %></h5>
+                  <p style="color: gray;">Total price: <%= ((your_booking.end_date - your_booking.start_date)/60000).round * your_booking.car.price %></p>
                 </div>
               </div>
             </div>
