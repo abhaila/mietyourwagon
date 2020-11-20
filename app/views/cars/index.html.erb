@@ -45,14 +45,17 @@
   <div class="cards-container">
     <!-- <h1>All Cars</h1> -->
     <div class="cards">
+
       <% @cars.each do |car| %>
         <% if car.photos.attached? %>
           <%= link_to car_path(car), class: 'card-text' do  %>
             <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path car.photos[0].key %>')"><%= car.brand %> <%= car.model %>
             </div>
           <% end %>
+
         <% end %>
       <% end %>
+
     </div>
      </div>
 

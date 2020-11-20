@@ -45,17 +45,17 @@
           <%= link_to "Delete car", car_path(@car), class: 'btn btn-warning', method: :delete, data: { confirm: "Are you sure you want to delete #{@car.model}?" } %>
         <% end %>
         </div>
-
-
-
     </div>
 
     <div class="col-sm-4">
-      <div class="form-container">
+      <div class="form-container" data-controller="price">
         <h4><strong>Add a booking for <%= @car.brand %> <%= @car.model %></strong></h4>
+        <p>£<%= @car.price.round %> per day</p>
         <%= simple_form_for [@car, @booking] do |f| %>
-          <%= f.input :start_date, html5: true  %>
-          <%= f.input :end_date, html5: true  %>
+          <%= f.input :start_date, html5: true, input_html: { data: {action: "change->price#calculate", target: "price.startDate", id: @car.id} }  %>
+          <%= f.input :end_date, html5: true, input_html: { data: {action: "change->price#calculate", target: "price.endDate", id: @car.id} }  %>
+          <p>Estimated price:</p>
+          <p>£<nobr data-target="price.datapoint">0</nobr></p>
           <%= f.button :submit, class: "btn btn-warning" %>
         <% end %>
       </div>
