@@ -17,8 +17,4 @@ const initBookingsTabs = () => {
   })
 }
 
-
-
-
-
 export { initBookingsTabs };
