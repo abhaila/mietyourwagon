@@ -1,19 +1,25 @@
-<div class="banner d-flex justify-content-around flex-column" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(https://resources.turo.com/f/81934/1536x1200/31e6dc24f1/uk-hero_768px-2x-05deeae4.jpg);">
-  <div class="container">
-    <h1>Miet Your Wagon</h1>
-  </div>
-  <div class="container">
-    <h2 class="text-center">Instantly rent cars near you <small>by the day or by hour</small></h2>
-    <p class="text-center">Book unforgettable cars from trusted hosts around the world</p>
-    <div class="d-flex justify-content-center">
-      <%= link_to "Join now", new_user_registration_path, class: "btn-ghost" %>
-  </div>
-  </div>
-  <div class="container">
-    <h3><strong>mieten</strong></h3>
-    <p><i>verb [ transitive ]</i></p>
-    <p><i>[ infinitive ] /ˈmiːtən/</i></p>
-    <h3>to rent</h3>
-  </div>
-</div>
+<section class="video">
 
+
+<!--   <%= image_tag "miet_logo.png" %>
+ -->
+  <%= video_tag "wagon.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "video-background" %>
+
+  <div class="welcome-msg">
+    <h1>MIET YOUR WAGON</h1>
+    <h2>Instantly <span class="coral-text">rent cars</span> near you</h2>
+       <a href="#" class="btn btn-start">Let's go</a>
+       <p class="definition">
+         <strong>mieten</strong><br>
+       </p>
+        <span id="light-text">
+        <em>verb<br>
+
+        /ˈmiːtən/</em><br>
+        </span>
+      <p class="definition">
+
+        <strong>to rent</strong>
+      </p>
+  </div>
+</section>
