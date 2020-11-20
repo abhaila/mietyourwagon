@@ -21,7 +21,7 @@
   padding: 8px 24px;
   border-radius: 4px;
   background: rgb(249, 171, 64);
-  transition: background 0.3s ease;
+  // transition: background 0.3s ease;
   width: 100%;
 }
 
@@ -47,9 +47,10 @@
 
 .btn-warning {
   background: rgb(249, 171, 64);
-  border: none;
-  max-width: 127px;
+  border-radius: 4px;
+  max-width: 100%;
   display: inline-block;
+
 
 }
 

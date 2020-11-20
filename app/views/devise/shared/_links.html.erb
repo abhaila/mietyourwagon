@@ -1,14 +1,14 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Sign up", new_session_path(resource_name), class: "btn btn-flat" %>
+  <%= link_to "Sign up", new_session_path(resource_name), class: "btn-primary ml-8 btn-warning" %>
 <% end %>
   <br>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-flat" %>
+  <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary ml-8 btn-warning" %>
 <% end %>
   <br>
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn btn-flat" %>
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn btn-primary ml-8 btn-warning" %>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
